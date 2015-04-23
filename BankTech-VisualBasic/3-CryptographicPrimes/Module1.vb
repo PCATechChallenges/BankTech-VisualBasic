@@ -1,37 +1,6 @@
 ﻿Imports System.Math
 
 Module Module1
-    '    Console.WriteLine("Let's find some Primes!\n\n");
-
-    '    var startNumber = 0;
-    '    while (startNumber <= 0)
-    '    {
-    '        Console.WriteLine("Please enter a number to start checking primes FROM:");
-    '        int.TryParse(Console.ReadLine(), out startNumber);
-    '    }
-
-    '    var endNumber = 0;
-    '    while (endNumber <= 0 || endNumber <= startNumber)
-    '    {
-    '        Console.WriteLine("Enter a number to stop looking at primes:");
-    '        int.TryParse(Console.ReadLine(), out endNumber);
-    '    }
-
-    '    var primeCounter = 0;
-    '    for (var i = startNumber; i <= endNumber; i++)
-    '    {
-    '        if (!IsPrime(i)) continue;
-    '        // CODE TIP: To save on nesting with brackets, throw out any non-primes
-    '        // This section of code will only execute when there IS a prime :)
-    '        Console.WriteLine(i);
-    '        primeCounter++;
-    '    }
-
-    '    Console.WriteLine("There are {0} prime numbers bewteen {1} and {2}", primeCounter, startNumber, endNumber);
-    '    Console.Read();
-    '}
-
-
 
     Sub Main()
 
@@ -52,10 +21,11 @@ Module Module1
         ' Cycle through the given range and count how many primes there are
         Dim primeCounter = 0
         For i As Integer = startNumber To endNumber
-            If IsPrime(i) Then  'DEV Note: See C# solution to see how this can be handled more efficiently
-                Console.WriteLine(i)
-                primeCounter += 1
-            End If
+
+            If Not IsPrime(i) Then Continue For
+            Console.WriteLine(i)
+            primeCounter += 1
+
         Next
 
         Console.WriteLine("There are {0} prime numbers between {1} and {2}", primeCounter, startNumber, endNumber)
